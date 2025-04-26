@@ -1,0 +1,121 @@
+.cart-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    background-color: #FFFFFF;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    font-family: 'Open Sans', sans-serif;
+}
+  
+.cart-container h2 {
+    font-family: 'Bebas Neue Cyrillic', sans-serif;
+    color: #36494E;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+}
+  
+.cart-items {
+    margin-bottom: 20px;
+}
+  
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding: 10px 0;
+    border-bottom: 1px solid #A9C9D8;
+}
+  
+.cart-item p {
+    margin: 0;
+    font-size: 1rem;
+    color: #597081;
+}
+  
+.cart-item .item-name {
+    font-weight: bold;
+    color: #000000;
+}
+  
+.cart-buttons {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+  
+.cart-buttons button,
+.remove-btn,
+.clear-cart-btn,
+.checkout-btn {
+    background-color: #7EA0B7;
+    color: #FFFFFF;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'Open Sans', sans-serif;
+    transition: background-color 0.3s ease;
+}
+  
+.cart-buttons button:hover,
+.remove-btn:hover,
+.clear-cart-btn:hover,
+.checkout-btn:hover {
+    background-color: #597081;
+}
+  
+.cart-total,
+.cart-summary {
+    text-align: right;
+    margin-top: 2rem;
+    font-size: 1.2rem;
+    color: #36494E;
+    font-weight: bold;
+}
+  
+.empty-cart {
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+    color: #597081;
+}
+  
+.back-to-store-link {
+    display: inline-block;
+    margin-top: 10px;
+    color: #36494E;
+    text-decoration: none;
+    font-weight: bold;
+}
+  
+.back-to-store-link:hover {
+    text-decoration: underline;
+}
+  
+.cart-widget {
+    position: relative;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+  
+.cart-widget img {
+    width: 30px;
+    height: 30px;
+}
+  
+.cart-widget span {
+    position: absolute;
+    top: -6px;
+    right: -10px;
+    background-color: #36494E;
+    color: #FFFFFF;
+    font-size: 0.75rem;
+    padding: 2px 6px;
+    border-radius: 50%;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+}  

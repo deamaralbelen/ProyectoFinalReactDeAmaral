@@ -1,0 +1,104 @@
+.checkout-container {
+    background-color: #FFFFFF;
+    padding: 2rem;
+    margin: 2rem auto;
+    max-width: 600px;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(54, 73, 78, 0.2);
+    font-family: 'Open Sans', sans-serif;
+    color: #36494E;
+}
+
+.checkout-container h2 {
+    font-family: 'Bebas Neue Cyrillic', sans-serif;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: #000000;
+    text-align: center;
+}
+
+.checkout-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.checkout-form label {
+    font-weight: 600;
+    color: #36494E;
+}
+
+.checkout-form input {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #7EA0B7;
+    font-size: 1rem;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.checkout-form input:focus {
+    outline: none;
+    border-color: #597081;
+    box-shadow: 0 0 5px rgba(89, 112, 129, 0.5);
+}
+
+.checkout-button {
+    margin-top: 1.5rem;
+    padding: 12px;
+    background-color: #597081;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.checkout-button:hover {
+    background-color: #36494E;
+}
+
+.order-success {
+    background-color: #A9C9D8;
+    padding: 2rem;
+    margin: 3rem auto;
+    border-radius: 16px;
+    max-width: 500px;
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.order-success h2 {
+    font-family: 'Bebas Neue', cursive;
+    color: #36494E;
+    font-size: 2.5rem;
+}
+
+.order-success p {
+    font-size: 1.2rem;
+    margin-top: 1rem;
+    color: #36494E;
+}
+
+.order-success strong {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 1.5rem;
+}
+
+.order-success a {
+    display: inline-block;
+    margin-top: 2rem;
+    background-color: #36494E;
+    color: #FFFFFF;
+    text-decoration: none;
+    padding: 0.8rem 1.6rem;
+    border-radius: 10px;
+    font-family: 'Bebas Neue', cursive;
+    transition: background-color 0.3s ease;
+}
+
+.order-success a:hover {
+    background-color: #597081;
+}

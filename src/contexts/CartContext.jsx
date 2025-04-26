@@ -1,11 +1,10 @@
-import React, { createContext, useState, useContext, useEffect } from 'react';
-import { saveCartToLocalStorage, loadCartFromLocalStorage } from '../utils/localStorage'; 
+import React, { createContext, useState, useEffect } from 'react';
+import { saveCartToLocalStorage, loadCartFromLocalStorage } from '../utils/localStorage';
 
 const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
-
-  const [cart, setCart] = useState(() => loadCartFromLocalStorage()); 
+  const [cart, setCart] = useState(() => loadCartFromLocalStorage());
 
   useEffect(() => {
     saveCartToLocalStorage(cart);
@@ -13,16 +12,21 @@ export const CartProvider = ({ children }) => {
 
   const addToCart = (productWithQuantity) => {
     const existingProduct = cart.find(item => item.id === productWithQuantity.id);
+    
     if (existingProduct) {
-      setCart(cart.map(item =>
+      const updatedCart = cart.map(item =>
         item.id === productWithQuantity.id
           ? { ...item, quantity: item.quantity + productWithQuantity.quantity }
           : item
-      ));
+      );
+      setCart(updatedCart);
+      console.log('Carrito actualizado después de sumar cantidad:', updatedCart);
     } else {
-      setCart([...cart, productWithQuantity]);
+      const updatedCart = [...cart, productWithQuantity];
+      setCart(updatedCart);
+      console.log('Carrito actualizado después de agregar nuevo producto:', updatedCart);
     }
-  };
+  };  
 
   const removeFromCart = (productId) => {
     setCart(cart.filter(item => item.id !== productId));
@@ -38,7 +42,5 @@ export const CartProvider = ({ children }) => {
     </CartContext.Provider>
   );
 };
-
-export const useCart = () => useContext(CartContext);
 
 export default CartContext;

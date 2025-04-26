@@ -1,0 +1,55 @@
+.home-container {
+    background: linear-gradient(to bottom, #A9C9D8, #7EA0B7);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+  
+.home-hero {
+    text-align: center;
+    background-color: #FFFFFF;
+    padding: 3rem 2rem;
+    border-radius: 2rem;
+    box-shadow: 0 8px 20px rgba(54, 73, 78, 0.2);
+    max-width: 600px;
+    width: 100%;
+}
+  
+.home-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3rem;
+    color: #36494E; 
+    margin-bottom: 1rem;
+}
+  
+.home-subtitle {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.2rem;
+    color: #597081; 
+    margin-bottom: 2rem;
+}
+  
+.home-button {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #36494E; 
+    color: #FFFFFF;
+    padding: 0.75rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+  
+.home-button:hover {
+    background-color: #597081; 
+    transform: scale(1.05);
+}
+  
+.home-button:active {
+    background-color: #36494E;
+    transform: scale(0.98);
+}  

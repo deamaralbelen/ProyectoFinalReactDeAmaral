@@ -1,42 +1,68 @@
-import React, { useState, useEffect, useMemo } from 'react'; 
+import React, { useState, useEffect } from 'react'; 
 import { useParams } from 'react-router-dom';
+import { doc, getDoc } from 'firebase/firestore'; 
+import { db } from "../../firebase/firebaseConfig"; 
 import ItemDetail from './ItemDetail'; 
-
-import sambaPink from '../assets/sambaPink.jpg';
-import campusBrown from '../assets/campusBrown.jpg';
-import campusBlack from '../assets/campusBlack.jpg';
-import nikeGrey from '../assets/nikeGrey.jpg';
-import vansKnu from '../assets/vansKnu.jpg';
+import '../../styles/ItemDetail.css';
 
 const ItemDetailContainer = () => {
-  const { productoId } = useParams(); 
-
-  const allProducts = useMemo(() => [
-    { id: 1, name: 'Adidas Samba Pink', price: 1650, image: sambaPink, description: 'Zapatillas Adidas Samba en color rosado.' },
-    { id: 2, name: 'Adidas Campus Brown', price: 1300, image: campusBrown, description: 'Zapatillas Adidas Campus en color marrón.' },
-    { id: 3, name: 'Adidas Campus Black', price: 1300, image: campusBlack, description: 'Zapatillas Adidas Campus en color negro.' },
-    { id: 4, name: 'Nike Dunk SB Grey', price: 1450, image: nikeGrey, description: 'Zapatillas Nike Dunk SB en color gris.' },
-    { id: 5, name: 'Vans KNU Skull Negro', price: 1600, image: vansKnu, description: 'Zapatillas Vans KNU Skull en color negro.' },
-  ], []); 
+  const { productoId } = useParams();
 
   const [product, setProduct] = useState(null); 
   const [loading, setLoading] = useState(true); 
 
   useEffect(() => {
-    setLoading(true);
-    setTimeout(() => {
-      const selectedProduct = allProducts.find(p => p.id === parseInt(productoId)); 
-      setProduct(selectedProduct); 
-      setLoading(false); 
-    }, 2000); 
-  }, [productoId, allProducts]); 
+    const obtenerProducto = async () => {
+      setLoading(true); 
+      try {
+        const docRef = doc(db, 'productos', productoId);
+        const docSnap = await getDoc(docRef); 
+
+        if (docSnap.exists()) {
+          setProduct({ id: docSnap.id, ...docSnap.data() }); 
+        } else {
+          console.log('No existe este producto');
+          setProduct(null); // importante: setea null explícitamente
+        }
+        setLoading(false); 
+      } catch (error) {
+        console.error('Error al obtener el producto:', error);
+        setLoading(false);
+      }
+    };
+
+    obtenerProducto(); 
+  }, [productoId]);
 
   if (loading) {
-    return <p> Cargando detalles del producto... </p>;
+    return <p>Cargando detalles del producto...</p>;
+  }
+
+  if (!product) {
+    return (
+      <div style={{ textAlign: 'center', padding: '2rem' }}>
+        <h2>😢 Producto no encontrado</h2>
+        <p>El producto que estás buscando no existe o fue eliminado.</p>
+        <button 
+          style={{ 
+            backgroundColor: '#A9C9D8', 
+            color: '#000', 
+            padding: '10px 20px', 
+            border: 'none', 
+            borderRadius: '5px', 
+            cursor: 'pointer', 
+            marginTop: '1rem' 
+          }}
+          onClick={() => window.location.href = '/'}
+        >
+          Volver al inicio
+        </button>
+      </div>
+    );
   }
 
   return (
-    <ItemDetail product={product} />
+    <ItemDetail product={product} /> 
   );
 };
 
